@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+{% load staticfiles %}
+
 <html>
 
     <head>
@@ -9,6 +12,7 @@
         <h1> Featured Posts </h1>
         <div>
             <strong>{{ boldmessage }}</strong><br />
+            <img src="{% static 'images/django.jpg' %}" alt="Django Logo" />
         </div>
         <div>
             <a href="/about/">About</a><br />

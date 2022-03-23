@@ -8,5 +8,5 @@ def index(request):
 
 
 def about(request):
-    return HttpResponse("About Ash")
+    return render(request, 'about.html')
 
