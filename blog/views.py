@@ -3,6 +3,10 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Ash On The Internet")
+    context_dict = {'boldmessage': ' How I Made A Blog For Free Using Django'}
+    return render(request, 'blog/index.html', context=context_dict)
 
-# Create your views here.
+
+def about(request):
+    return HttpResponse("About Ash")
+
