@@ -5,15 +5,30 @@
 <html>
 
     <head>
-        <title>Ash's Blog On The Internet</title>
+        <title>Ash On The Internet</title>
     </head>
 
     <body>
-        <h1> Featured Posts </h1>
+        <h1> Ash's Blog </h1>
+
         <div>
             <strong>{{ boldmessage }}</strong><br />
-            <img src="{% static 'images/django.jpg' %}" alt="Django Logo" />
         </div>
+
+        <div>
+            {% if categories %}
+                <ul>
+                    {% for category in categories %}
+                        <li>
+                            <a href="/blog/category/{{ category.slug }}/">{{ category.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <strong>There are no categories to present.</strong>
+            {% endif %}
+        </div>
+
         <div>
             <a href="/about/">About</a><br />
         </div>

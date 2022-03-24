@@ -7,7 +7,7 @@ def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
 
     context_dict = {}
-    context_dict['boldmessage'] = ' How I Made A Blog For Free Using Django'
+    context_dict['boldmessage'] = 'Featured Categories'
     context_dict['categories'] = category_list
 
     return render(request, 'blog/index.html', context=context_dict)
@@ -15,4 +15,20 @@ def index(request):
 
 def about(request):
     return render(request, 'about.html')
+
+
+def show_category(request, category_name_slug):
+    context_dict = {}
+
+    try:
+        category = Category.objects.get(slug=category_name_slug)
+        posts = Post.objects.filter(category=category)
+
+        context_dict['posts'] = posts
+        context_dict['category'] = category
+    except:
+        context_dict['posts'] = None
+        context_dict['category'] = None
+
+    return render(request, 'blog/category.html', context=context_dict)
 

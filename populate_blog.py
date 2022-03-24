@@ -33,15 +33,17 @@ def populate():
             print(f'- {c}: {p}')
 
 
-def add_post(cat, title, text, views=0):
-    p = Post.objects.get_or_create(category=cat, title=title, text=text)[0]
+def add_post(cat, title, text, views=0, likes=0):
+    p = Post.objects.get_or_create(category=cat, title=title, text=text, likes=likes)[0]
     p.views = views
     p.save()
     return p
 
 
-def add_cat(name):
+def add_cat(name, views=0, likes=0):
     c = Category.objects.get_or_create(name=name)[0]
+    c.views = views
+    c.likes = likes
     c.save()
     return c
 
