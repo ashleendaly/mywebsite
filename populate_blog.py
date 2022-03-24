@@ -10,7 +10,7 @@ from blog.models import Category, Post
 def populate():
 
     django_posts = [
-        {'title': 'How I Build A Blog From Scratch For Free Using Django',
+        {'title': 'How I Build A Blog For Free Using Django',
          'text': 'It was easy!'}
     ]
 
@@ -34,8 +34,9 @@ def populate():
 
 
 def add_post(cat, title, text, views=0, likes=0):
-    p = Post.objects.get_or_create(category=cat, title=title, text=text, likes=likes)[0]
+    p = Post.objects.get_or_create(category=cat, title=title, text=text)[0]
     p.views = views
+    p.likes = likes
     p.save()
     return p
 

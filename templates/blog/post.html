@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+<head>
+    <title>Ash On The Internet</title>
+</head>
+<body>
+  <div>
+    <h1>{{ post.title }}</h1>
+    <h3>Created on {{ post.created_on }}</h3>
+    {% if post.cover_image %}
+      <img src="/media/{{ post.cover_image }}" alt="{{ post.title }}">
+    {% else %}
+      This post has no cover image
+    {% endif %}
+    <p>{{post.content}}</p>
+  </div>
+</body>

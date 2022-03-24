@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        <h1> Ash's Blog </h1>
+        <h1> Ash on The Internet </h1>
 
         <div>
             <strong>{{ boldmessage }}</strong><br />
@@ -20,7 +20,7 @@
                 <ul>
                     {% for category in categories %}
                         <li>
-                            <a href="/blog/category/{{ category.slug }}/">{{ category.name }}</a>
+                            <a href="/blog/{{ category.slug }}/">{{ category.name }}</a>
                         </li>
                     {% endfor %}
                 </ul>
@@ -31,6 +31,7 @@
 
         <div>
             <a href="/about/">About</a><br />
+            <a href="/blog/">Blog</a><br />
         </div>
     </body>
 

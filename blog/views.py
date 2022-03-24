@@ -32,3 +32,15 @@ def show_category(request, category_name_slug):
 
     return render(request, 'blog/category.html', context=context_dict)
 
+
+def show_post(request, category_name_slug, post_title_slug):
+    context_dict = {}
+
+    try:
+        post = Post.objects.filter(slug=post_title_slug)
+        context_dict['post'] = post
+
+    except:
+        context_dict['post'] = None
+
+    return render(request, 'blog/post.html', context=context_dict)
